@@ -1,6 +1,7 @@
 package br.alura.com.gerenciador.servlet;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
@@ -49,5 +50,11 @@ public class Banco {
 			}
 		}
 		return null;
+	}
+
+	public void alteraEmpresa(Integer id, String nomeEmpresa, Date dataAbertura) {
+		Empresa empresa = buscaEmpresaPelaId(id);
+		empresa.setNome(nomeEmpresa);
+		empresa.setDataAbertura(dataAbertura);
 	}
 }
