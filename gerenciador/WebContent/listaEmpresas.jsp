@@ -4,6 +4,7 @@
 	import="java.util.List,br.alura.com.gerenciador.servlet.Empresa"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<c:url value="removeEmpresa" var="linkServletRemoveEmpresa" />
 
 <!DOCTYPE html>
 <html>
@@ -22,7 +23,9 @@
 	<ul>
 		<c:forEach items= "${empresas}" var = "empresa">
 		<fmt:formatDate value="${ empresa.dataAbertura }" var="dataAbertura" pattern="dd/MM/yyyy"/>
-			<li> ${ empresa.nome } - ${ dataAbertura }</li>
+			<li> ${ empresa.nome } - ${ dataAbertura }
+				<a href="${ linkServletRemoveEmpresa }?id=${empresa.id}" > remove </a>
+			</li>
 		</c:forEach>
 	</ul>
 </body>
